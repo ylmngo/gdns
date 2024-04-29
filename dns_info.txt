@@ -1,0 +1,24 @@
+DNS Server: 
+  . DNS packets are sent using UDP transport and are limited to 512 bytes. 
+  . DNS packets can be sent using TCP through eDNS mechanism, for large message sizes. 
+  . DNS packets has: 
+    1) header (12 bytes): 
+      descibes the query/response 
+      ID: 16 bit identifier assigned by the program that generates any kind of query. 
+      QR: 1 bit field that specifies whether this message is a query or a response. 
+      OPCODE: 4 bit field that specifies kind of query in this message. (Should use 0)
+      AA: 
+      TC: 
+      RD: 1 bit field and should be set to 1 (Recursion is desired). 
+      RA: 1 bit field and should be set to 1 (Recursion is available). Return failure if not available. 
+      Z : 1 bit field reserverd for future use. 
+      RCODE: 4 bit field, set as a part of responses.
+      QDCOUNT: unsigned 16 bit integer specifying the number of questions. 
+      ANCOUNT: unsigned 16 bit integer specifying the number of answers.
+      NSCOUNT: 
+      ARCOUNT: 
+
+    2) Question: 
+      QNAME: A domain name respresented as a sequence of lables 
+      QTPYE: a two octect code specifying the type of query. 
+      QCLASS: A two octet code that specifies the class of the query
